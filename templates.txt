@@ -1,0 +1,17 @@
+I just have this to help me copy and paste so I can write faster...
+
+~The decisions~
+choice = 0 # Variable reset
+while (conditions):
+    choice = input("|Type inputs and include a help option| : ")
+    print("--------")
+    if int(choice) == 1:
+        do this
+    elif int(choice) == 2:
+        do this
+    elif int(choice) == 3:
+        do this
+    elif int(choice) == 4:
+        help message
+    else:
+        invalid choice message

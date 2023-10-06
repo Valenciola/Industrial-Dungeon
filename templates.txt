@@ -2,8 +2,8 @@ I just have this to help me copy and paste so I can write faster...
 
 ~The decisions~
 choice = 0 # Variable reset
-while (conditions):
-    choice = input("|Type inputs and include a help option| : ")
+while (int(choice) < least answer or int(choice) > most answer - 1):
+    choice = input("\n|Type inputs and include a help option| : ")
     print("--------")
     if int(choice) == 1:
         do this

@@ -13,8 +13,9 @@ statnames = ["Strength", "Luck", "Stamina"]
 statvalues = ["10", "0", "20"]
 name = "Unknown"
 choice = 0
+waittime = 0
 
-'''
+
 # Intro
 print("--------")
 print("...")
@@ -30,8 +31,10 @@ print("--------")
 time.sleep(2)
 print("...")
 time.sleep(2)
-print("It's really dark... How did you end up here?\n")
-'''
+print("It's really dark here...")
+time.sleep(2)
+print("Oh, hold on... There's someone else! Hey! How did you get here?\n")
+
 
 choice = 0
 while (int(choice) < 1 or int(choice) > 3):
@@ -50,14 +53,14 @@ while (int(choice) < 1 or int(choice) > 3):
         print("-> Type the number of your choice.")
     else:
         print("\nSorry, I don't think I got that. Come again?")
-
+'''
 name = input("Enter your name: ")
 print("\nYour name is...")
 time.sleep(2)
 print(name + "?")
 
 choice = 0
-while (int(choice) < 1 or int(choice) > 3):
+while (int(choice) < 1 or int(choice) > 2):
     choice = input("\n|1. Yes.| 2. No. | 3. What? | : ")
     print("--------")
     if int(choice) == 1:
@@ -65,8 +68,34 @@ while (int(choice) < 1 or int(choice) > 3):
     elif int(choice) == 2:
         print("\nOh, my bad. What was it again?")
         name = input("Enter your name: ")
-        print("Oh, so it's " + name + ". Got it!")
+        print("\nOh, so it's " + name + ". Got it!")
     elif int(choice) == 3:
         print("-> Type the number of your choice.")
     else:
         print("Come again?")
+
+print("\nI'm the narrator. In other words, I control the story here. However...")
+time.sleep(2)
+print("I don't think it would be fair to force you into anything, " + name + ", so I think I'll give you some say in what happens.")
+time.sleep(2)
+print("Now, I think we should really get a move-on. I have three places in mind where we can go to, but you might want to prepare yourself first.")
+time.sleep(2)
+print("Are you ready now?")
+
+choice = 0
+waittime = 0
+while (int(choice) < 1 or int(choice) > 2):
+    choice = input("\n|1. Yes! | 2. No... | 3. How should I answer this? | : ")
+    print("--------")
+    if int(choice) == 1:
+        print("Awesome! Let's go!!!")
+    elif int(choice) == 2:
+        print("Okay, then, how long should I give you?")
+        waittime = input("Enter the time in seconds: ")
+        print("Okay, " + waittime + " seconds until our departure, " + name + "!")
+        time.sleep(int(waittime))
+        print("\nAlright! It's been " + waittime + " seconds!") 
+    elif int(choice) == 3:
+        print("-> Type the number of your choice.")
+    else:
+        print("I don't understand... Maybe I should ask again?")

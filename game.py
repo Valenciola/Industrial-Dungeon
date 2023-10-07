@@ -15,7 +15,11 @@ name = "Unknown"
 choice = 0
 waittime = 0
 storyline = 0
-room = 0
+rooms = [0, 0, 0, 0, 0]
+quickpro = []
+
+# Delete these resetting tools
+name = "Valerie"
 
 '''
 # Intro
@@ -28,7 +32,7 @@ print("Narrator et Toi...")
 time.sleep(2)
 print("Also known as *Terminal Narrator*")
 print("--------")
-'''
+
 
 # Prologue (yes, they're different here)
 time.sleep(2)
@@ -185,5 +189,90 @@ while int(choice) != 1:
         print(" -> Enter the number of your choice")
     else:
         print("This isn't one of the options...")
+'''
 
-# Storyline is 3
+print(name + " heads back to the desk in search of the key.")
+
+choice = 0
+while int(choice) != 3:
+    time.sleep(2)
+    print("\nWhat would you like to do?")
+    choice = input("| 1. Open some desk drawers | 2. Check your bag | 3. Ask your co-workers | 4. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        print(name + " opens some desk drawers, but all there is are a few random papers, eraser shavings, and bent staples.")
+    elif int(choice) == 2:
+        if len(bag) == 0:
+            print("Your bag is empty!")
+        else:
+            print("Contents of the bag: ")
+            for x in range (len(bag)):
+                print(x + ".: " + bag[x])
+    elif int(choice) == 3:
+        storyline = 4
+    elif int(choice) == 4:
+        print(" -> Enter the number of your choice")
+    else:
+        print("This isn't one of the options...")
+
+print(name + " decides that it might be a good idea to speak to nearby colleagues.")
+time.sleep(2)
+print(name + " looks around and identifies Sandra, Pieter, and Taro occupying the three nearest desks. Perhaps they know something?")
+
+choice = 0
+quickpro = [0, 0, 0]
+while int(choice) != 3:
+    time.sleep(2)
+    print("\nWhat who do you want to talk to?")
+    choice = input("| 1. Sandra | 2. Pieter | 3. Taro | 4. No one | 5. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        if quickpro[0] == 0:
+            print(name + " approaches Sandra, who is applying some lipstick at her desk.")
+            time.sleep(2)
+            print(name + " hesitates, feeling awkward about interrupting her, but decides to ask anyway.")
+            time.sleep(2)
+            print(name + " calls Sandra's name, but she doesn't respond, so " +
+                name + " just launches right into it and asks about the key.")
+            time.sleep(2)
+            print("Sandra rolls her eyes and says, \"Oh, " + name +
+                "! Has the perfect employee lost something? That's quite a shame, isn't it? Sorry, but I can't help you there.\"")
+            time.sleep(2)
+            print(name + " bristles at Sandra's disdain, but decides that getting into an argument won't help find the key. So " + name + " walks away.")
+            quickpro[0] = 1
+        else:
+            print(name + " thinks of approaching Sandra again, but realizes that she'll probably be just as helpful as she was last time. Which was not at all.")
+    elif int(choice) == 2:
+        if quickpro[1] == 0:
+            print(name + " heads over to Pieter's desk.")
+            time.sleep(2)
+            print("When Pieter notices " + name + " heading to him, he looks up and smiles politely.")
+            time.sleep(2)
+            print("\"Good morning, " + name + "! Do you need something?\" he asks cheerfully.")
+            time.sleep(2)
+            print(name + " explains the key situation and asks if Pieter knows anything. Unfortunately, he shakes his head and says that he doesn't.")
+            time.sleep(2)
+            print(name + " thanks Pieter anyway and heads back to the desk.")
+            quickpro[1] = 1
+        elif quickpro[1] == 1 and quickpro[0] == 1:
+            print(name + " considers asking Pieter about the key again, but since he was so much nicer than Sandra, " + name + " decides not to.")
+        else:
+            print(name + " considers asking Pieter about the key again, but figures that it won't do any good.")
+    elif int(choice) == 3:
+        storyline = 4
+        print(name + " walks up to Taro, thinking he might have an idea about the key.")
+    elif int(choice) == 4:
+        print(name + " considers just staying at the desk and hoping the key will turn up, but realizes that it likely won't just appear out of thin air. It's probably better to ask for more information...")
+    elif int(choice) == 5:
+        print(" -> Enter the number of your choice.")
+    else:
+        print("This isn't one of the options...")
+
+time.sleep(2)
+print("\"The key, huh?\" he asks curiously, propping his head on his fists.")
+time.sleep(2)
+print("\"Nope, haven't seen your key anywhere, " + name + ".\" he says after a moment, much to " + name +"'s disappointment.")
+time.sleep(2)
+print("\"BUT!\" Taro says suddenly, startling " + name + ". \"I bet it ended up somewhere in the fantastical creature rooms.\"")
+time.sleep(2)
+print("\"I know that the green elves especially love shiny things around here. Keys are a shiny thing. How about taking a trip into the hall?\"")

@@ -130,10 +130,10 @@ time.sleep(5)
 print("Anyhow, " + name + " arrives to work and heads to the familiar desk. It's time to get to work!")
 time.sleep(3)
 print(" -> You'll need your task folder. It's in your locker...")
-time.sleep(5)
+time.sleep(3)
 
 choice = 0
-while (int(choice) != 3:
+while int(choice) != 3:
     time.sleep(2)
     print("\nWhat would you like to do?")
     choice = input("| 1. Check your desk | 2. Check your bag | 3. Go to your locker | 4. HELP | : ")
@@ -153,3 +153,37 @@ while (int(choice) != 3:
         print(" -> Enter the number of your choice")
     else:
         print("This isn't one of the options...")
+
+print(name + " heads over to the office lockers to get the task folder. But...")
+time.sleep(3)
+print("Wait a minute! Where's " + name + "'s key?")
+time.sleep(3)
+print(" -> Hmm... Perhaps the key is in your desk?")
+
+choice = 0
+while int(choice) != 1:
+    time.sleep(2)
+    print("\nWhat would you like to do?")
+    choice = input("| 1. Head back your desk | 2. Check your bag | 3. Try to open the locker | 4. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        storyline = 3
+    elif int(choice) == 2:
+        if len(bag) == 0:
+            print("Your bag is empty!")
+        else:
+            print("Contents of the bag: ")
+            for x in range (len(bag)):
+                print(x + ".: " + bag[x])
+    elif int(choice) == 3:
+        if ("key" in bag):
+            # change storyline here to finish
+            break
+        else:
+            print(name + " tries to open the locker, but it can't be opened without the key, which " + name + " doesn't have.")
+    elif int(choice) == 4:
+        print(" -> Enter the number of your choice")
+    else:
+        print("This isn't one of the options...")
+
+# Storyline is 3

@@ -3,6 +3,8 @@ I just have this to help me copy and paste so I can write faster...
 ~The decisions~
 choice = 0 # Variable reset
 while (int(choice) < least answer or int(choice) > most answer - 1):
+    time.sleep(2)
+    print("\nPrompt")
     choice = input("\n|Type inputs and include a help option| : ")
     print("--------")
     if int(choice) == 1:

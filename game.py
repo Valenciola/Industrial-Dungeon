@@ -189,18 +189,22 @@ while int(choice) != 1:
         print(" -> Enter the number of your choice")
     else:
         print("This isn't one of the options...")
-'''
 
 print(name + " heads back to the desk in search of the key.")
 
 choice = 0
+quickpro = [0]
 while int(choice) != 3:
     time.sleep(2)
     print("\nWhat would you like to do?")
     choice = input("| 1. Open some desk drawers | 2. Check your bag | 3. Ask your co-workers | 4. HELP | : ")
     print("--------")
     if int(choice) == 1:
-        print(name + " opens some desk drawers, but all there is are a few random papers, eraser shavings, and bent staples.")
+        if quickpro[0] == 1:
+            print(name + " opens the desk drawers again, but all of the same stuff is still there. The key is probably not at the desk.")
+        else:
+            print(name + " opens some desk drawers, but all there is are a few random papers, eraser shavings, and bent staples.")
+            quickpro[0] = 1
     elif int(choice) == 2:
         if len(bag) == 0:
             print("Your bag is empty!")
@@ -259,7 +263,7 @@ while int(choice) != 3:
         else:
             print(name + " considers asking Pieter about the key again, but figures that it won't do any good.")
     elif int(choice) == 3:
-        storyline = 4
+        storyline = 5
         print(name + " walks up to Taro, thinking he might have an idea about the key.")
     elif int(choice) == 4:
         print(name + " considers just staying at the desk and hoping the key will turn up, but realizes that it likely won't just appear out of thin air. It's probably better to ask for more information...")
@@ -271,8 +275,62 @@ while int(choice) != 3:
 time.sleep(2)
 print("\"The key, huh?\" he asks curiously, propping his head on his fists.")
 time.sleep(2)
-print("\"Nope, haven't seen your key anywhere, " + name + ".\" he says after a moment, much to " + name +"'s disappointment.")
+print("\"Nope, haven't seen your key anywhere, " + name + ",\" he says after a moment, much to " + name +"'s disappointment.")
 time.sleep(2)
 print("\"BUT!\" Taro says suddenly, startling " + name + ". \"I bet it ended up somewhere in the fantastical creature rooms.\"")
 time.sleep(2)
 print("\"I know that the green elves especially love shiny things around here. Keys are a shiny thing. How about taking a trip into the hall?\"")
+
+choice = 0
+while (int(choice) < 1 or int(choice) > 2):
+    time.sleep(2)
+    print("\nHow will you respond?")
+    choice = input("\n|1. \"I guess it's worth a look...\" | 2. \"I don't know...\" | 3. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        print("Taro smiles. \"Excellent!\" he exclaims. \"Oh, and why don't you tell me what you find out while you're there? Working in PR can be so boring.\"")
+        time.sleep(4)
+        print(name + " can't help but smile at Taro's authenticity. " + name + " thanks Taro for his help and heads back to the desk.")
+    elif int(choice) == 2:
+        print("Taro shrugs and smiles. \"Well, I guess the halls aren't for everyone. But still, I'm betting that you'll find your key in there, " + name + ".\"")
+        time.sleep(3)
+        print(name + " thanks Taro for the information and heads back to the desk.")
+    elif int(choice) == 3:
+        print(" -> Enter the number of your choice.")
+    else:
+        print("This isn't one of the options...")
+
+storyline = 6
+time.sleep(2)
+print(name + " has now returned to the desk. It seems that Taro's theory is worth investigating. Plus, it could be a lot more fun than dealing with people...")
+time.sleep(2)
+
+choice = 0
+while (int(choice) != 1):
+    time.sleep(2)
+    print("\nWhat would you like to do?")
+    choice = input("\n|1. Investigate the halls | 2. Do nothing | 3. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        print(name + " decides to enter the halls, in search of the prized key.")
+        storyline = 7
+    elif int(choice) == 2:
+        print(name + " decides to just chill at the desk.")
+        time.sleep(10)
+        print("After about 10 seconds, " + name + " gets bored.")
+    elif int(choice) == 3:
+        print(" -> Type the number of your chosen action")
+    else:
+        print("This isn't one of the options...")
+
+time.sleep(2)
+print(name + " stands up from the desk and heads to a dark hallway opening. Taro smirks as " + name + " goes.")
+time.sleep(2)
+print("And so, with a stride of bravery and determination, " + name + " heads into the darkness.")
+'''
+# Chapter 2
+time.sleep(2)
+print("\n-----------------------------")
+print("~~~Into the Halls~~~")
+print("-----------------------------")
+time.sleep(3)

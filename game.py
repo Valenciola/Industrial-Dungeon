@@ -9,8 +9,6 @@ import time # Allows the program to wait (for dramatic effect)
 currency = 50
 bag = []
 health = 100
-statnames = ["Strength", "Luck", "Stamina"]
-statvalues = ["10", "0", "20"]
 name = "Unknown"
 choice = 0
 waittime = 0
@@ -299,7 +297,7 @@ while (int(choice) < 1 or int(choice) > 2):
         print(" -> Enter the number of your choice.")
     else:
         print("This isn't one of the options...")
-
+'''
 storyline = 6
 time.sleep(2)
 print(name + " has now returned to the desk. It seems that Taro's theory is worth investigating. Plus, it could be a lot more fun than dealing with people...")
@@ -324,13 +322,63 @@ while (int(choice) != 1):
         print("This isn't one of the options...")
 
 time.sleep(2)
+print("Before leaving, " + name + " decides that it might not be a bad idea to take a pen and notepad, in case the creatures are more visual and need a drawing.")
+time.sleep(2)
+bag.append("Pen")
+bag.append("Notepad")
+print(" -> You added a pen and notepad to your bag!")
+time.sleep(2)
 print(name + " stands up from the desk and heads to a dark hallway opening. Taro smirks as " + name + " goes.")
 time.sleep(2)
 print("And so, with a stride of bravery and determination, " + name + " heads into the darkness.")
-'''
+time.sleep(4)
+
 # Chapter 2
 time.sleep(2)
 print("\n-----------------------------")
 print("~~~Into the Halls~~~")
 print("-----------------------------")
 time.sleep(3)
+print("\nThe hallway is quite dark. The only light comes from a small wall lamp. Underneath it is a sign.")
+time.sleep(2)
+print(name + " reads the sign. It says, \"Fantastical Creature Hallway - Subsection A\".")
+time.sleep(2)
+print(name + " recalls that the green elves' habitat is in this subsection, so this would be a good place to explore. The key must be here somewhere...")
+time.sleep(2)
+print(name + " looks around and notices five doors, all of which are unmarked. This calls for a little bit of exploration...")
+
+# Storyline is now 7. Must become 8 to continue. Rooms must all be at 1 for storyline to become 8.
+choice = 0
+rooms = [0, 0, 0, 0, 0]
+quickpro = [0, 0, 0, 0, 0]
+while (int(storyline) == 7):
+    time.sleep(2)
+    print("\nWhich room do you want to explore?")
+    choice = input("\n|1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall |7. HELP | : ")
+    print("--------")
+    if int(choice) == 1:
+        # Siren
+    elif int(choice) == 2:
+        # Dragon
+        print(name + " decides to just chill at the desk.")
+        time.sleep(10)
+        print("After about 10 seconds, " + name + " gets bored.")
+    elif int(choice) == 3:
+        # Green elves
+        print(" -> Type the number of your chosen action")
+    elif int(choice) == 4:
+        # Goblins
+    elif int(choice) == 5:
+        # Trolls
+    elif int(choice) == 6:
+        # Leaving
+        if "key" in bag:
+            print("With the key safely in hand, " + name + " heads back to the desk.")
+            storyline == 8
+        else:
+            print(name + " considers just leaving the hall, but the key is still nowhere to be found, so leaving won't help anything.")
+    elif int(choice) == 7:
+        # Help
+        print(" -> Enter the option you want to choose.")
+    else:
+        print("This isn't one of the options...")

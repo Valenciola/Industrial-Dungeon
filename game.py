@@ -324,8 +324,8 @@ while (int(choice) != 1):
 time.sleep(2)
 print("Before leaving, " + name + " decides that it might not be a bad idea to take a pen and notepad, in case the creatures are more visual and need a drawing.")
 time.sleep(2)
-bag.append("Pen")
-bag.append("Notepad")
+bag.append("pen")
+bag.append("notepad")
 print(" -> You added a pen and notepad to your bag!")
 time.sleep(2)
 print(name + " stands up from the desk and heads to a dark hallway opening. Taro smirks as " + name + " goes.")
@@ -347,29 +347,105 @@ print(name + " recalls that the green elves' habitat is in this subsection, so t
 time.sleep(2)
 print(name + " looks around and notices five doors, all of which are unmarked. This calls for a little bit of exploration...")
 
-# Storyline is now 7. Must become 8 to continue. Rooms must all be at 1 for storyline to become 8.
+# Storyline is now 7. Must become 8 to continue to trading, and 9 to continue. Rooms must all be at 1 for storyline to become 9.
 choice = 0
 rooms = [0, 0, 0, 0, 0]
 quickpro = [0, 0, 0, 0, 0]
-while (int(storyline) == 7):
+while (int(storyline) != 9):
     time.sleep(2)
     print("\nWhich room do you want to explore?")
-    choice = input("\n|1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall |7. HELP | : ")
+    choice = input("\n|1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. HELP | : ")
     print("--------")
     if int(choice) == 1:
         # Siren
+        if rooms[0] == 1:
+            # siren is happy
+            print("a")
+        elif quickpro[0] == 1:
+            # User already visited siren and siren no want talk
+            print("a")
+        else:
+            print(name + " opens the first door. Inside is a lagoon with a sandy area right in front of the door.")
+            time.sleep(2)
+            print("A creature, which " + name + " identifies as a siren pokes its head above the blue water and stares at " + name + ".")
+            time.sleep(2)
+            print("\"Hey!\" " + name + " calls out to it. \"I'm looking for a golden key! Have you seen one?\"")
+            time.sleep(2)
+            print("The siren doesn't respond. For a second, " + name + " thought it might not have heard, but suddenly, the siren starts to launch into a mind-captivating song.")
+            time.sleep(2)
+            print("To any other person, the song would take over the person's senses immediately. But because " + name + " works with public relations, where the skill of tuning people out is very important, it has no affect.")
+            time.sleep(2)
+            print("Annoyed by the song, " + name + " leaves the room.")
+            quickpro[0] = 1
     elif int(choice) == 2:
         # Dragon
-        print(name + " decides to just chill at the desk.")
-        time.sleep(10)
-        print("After about 10 seconds, " + name + " gets bored.")
+        if rooms[1] == 1:
+            # siren is happy
+            print("a")
+        elif quickpro[1] == 1:
+            # User already visited siren and siren no want talk
+            print("a")
+        else:
+            print(name + " enters the second door. Inside is a deep red dragon. He is lying on its stomach, looking generally uninterested in everything around him.")
+            time.sleep(2)
+            print(name + " calls up to ask about the key, but the dragon isn't listening. Instead, it huffs, blowing out steam from its nostrils and turning away.")
+            time.sleep(2)
+            print("Unsure of what else to do, " + name + " quietly leaves the room.")
+            quickpro[1] = 1
     elif int(choice) == 3:
         # Green elves
-        print(" -> Type the number of your chosen action")
+        if rooms[2] == 1:
+            # siren is happy
+            print("a")
+        elif quickpro[2] == 1:
+            # User already visited siren and siren no want talk
+            print("a")
+        else:
+            print(name + " enters the third room. It's filled with verdant, rolling hills that seem to stretch on endlessly.")
+            time.sleep(2)
+            print("Immediately, " + name + " spots a bouncy, small green elf standing close to the door. " + name + " blinks awkwardly, unsure what the elf could want.")
+            time.sleep(2)
+            print("The elf smiles up at " + name + ", and " + name + " decides to just go straight into asking about the key.")
+            time.sleep(2)
+            print("\"Maybe I do have it, and maybe I don't,\" the elf answers mischevously. From the way that the elf is bouncing eagerly on its feet, " + name + " can tell that it probably does have some idea about the key.")
+            time.sleep(2)
+            print(name + " tries to coax the elf into giving up the key, but the elf isn't so interested in giving it up as it is interested in giving " + name + " a hard time.")
+            time.sleep(2)
+            print(name + " is pretty annoyed at the elf's antics, but then recalls what Taro said about the green elves liking shiny things...")
+            time.sleep(2)
+            print(name + " figures that maybe it might help to find something to trade for the key...")
+            time.sleep(2)
+            print(name + " looks around and notices a box of mints behind the elf. In one swift movement, " + name + " nabs the mints and exits the room before the elf can try to get it back.")
+            time.sleep(2)
+            bag.append("mints")
+            print(" -> You added mints to your bag!")
+            quickpro[2] = 1
     elif int(choice) == 4:
         # Goblins
+        if rooms[3] == 1:
+            # siren is happy
+            print("a")
+        elif quickpro[3] == 1:
+            # User already visited siren and siren no want talk
+            print("a")
+        else:
+            print(name + " enters the fourth room. The sky is bleak, and right in front of " + name + " is a dark, iron fortress.")
+            time.sleep(2)
+            print("\"HELLOOOO!\" " + name + " calls out, to no avail. No one exits the fortress, so " + name + " walks away.")
     elif int(choice) == 5:
         # Trolls
+        if rooms[4] == 1:
+            # siren is happy
+            print("a")
+        elif quickpro[4] == 1:
+            # User already visited siren and siren no want talk
+            print("a")
+        else:
+            print("The fifth room is an underground tunnel. " + name + " can see that there is an entire civilization within the expansive tunnel.")
+            time.sleep(2)
+            print("A female troll walks up to " + name + " and smiles politely. \"Can I help you with anything?\" she asks.")
+            time.sleep(2)
+            print(name + " asks about the key. Unfortunately, the troll shakes her head sadly and explains that she hasn't seen it. " + name + " thanks the troll for her help and exits the room.")
     elif int(choice) == 6:
         # Leaving
         if "key" in bag:

@@ -7,7 +7,6 @@ import time # Allows the program to wait (for dramatic effect)
 
 # Variables
 bag = []
-health = 100
 name = "Unknown"
 choice = 0
 waittime = 0
@@ -15,19 +14,13 @@ storyline = 0
 rooms = [0, 0, 0, 0, 0]
 quickpro = []
 
-# Delete these resetting tools
-name = "Valerie"
-
-'''
 # Intro
 print("--------")
 print("...")
 time.sleep(2)
 print("A story told in Python...")
 time.sleep(2)
-print("Narrator et Toi...")
-time.sleep(2)
-print("Also known as *Industrial Dungeon*")
+print("*Industrial Dungeon*...")
 print("--------")
 
 
@@ -147,7 +140,7 @@ while int(choice) != 3:
         else:
             print("Contents of the bag: ")
             for x in range (0, len(bag)):
-            print(str(x + 1) + ".: " + bag[x])
+                print(str(x + 1) + ".: " + bag[x])
     elif int(choice) == 3:
         storyline = 2
     elif int(choice) == 4:
@@ -296,7 +289,6 @@ while (int(choice) < 1 or int(choice) > 2):
         print(" -> Enter the number of your choice.")
     else:
         print("This isn't one of the options...")
-'''
 
 storyline = 6
 time.sleep(2)
@@ -353,7 +345,7 @@ rooms = [0, 0, 0, 0, 0]
 quickpro = [0, 0, 0, 0, 0]
 while (int(storyline) != 8):
     time.sleep(2)
-    print(" -> You are in the hallway.")
+    print("\n -> You are in the hallway.")
     print("\nWhich room do you want to explore?")
     choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. Check your bag | 8. HELP | : ")
     print("--------")
@@ -758,7 +750,7 @@ print(name + " opens the folder and notices that only one piece of paper is in t
 time.sleep(3)
 print(name + " turns the paper over, but there's nothing on the back. " + name + " can't really help but laugh about the irony of the entire situation, but what else can be done?")
 time.sleep(3)
-print("After all, for " + name + " it's just another day at the Industrial Dungeon").
+print("After all, for " + name + ", it's just another day at the Industrial Dungeon.")
 time.sleep(2)
 
 # Credits
@@ -772,4 +764,7 @@ time.sleep(2)
 print("*All references to Shrek were only added because it was requested*")
 time.sleep(2)
 print("Thanks for playing the game, " + name + "! I hope you had fun :)")
+time.sleep(3)
+print("THE END")
 time.sleep(5)
+print("\n")

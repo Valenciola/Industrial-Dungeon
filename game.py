@@ -434,7 +434,7 @@ while (int(storyline) != 9):
         # Dragon
         if rooms[1] == 1:
             # dragon is happy
-            print(name + " reenters the dragon's room. The dragon is still eating the mints, all while grumbling something about an ogre being overprotective over a swamp. It doesn't make much sense to " + name + ", but it might be a good idea to leave before the dragon launches into a rant, so " + name + " leaves the room.")
+            print(name + " reenters the dragon's room. The dragon is still eating the mints, all while grumbling something about an ogre being overprotective over a swamp. He also adds something about goblins and sharp things. It doesn't make much sense to " + name + ", but it might be a good idea to leave before the dragon launches into a rant, so " + name + " leaves the room.")
         elif quickpro[1] == 1:
             # User already visited
             print(" -> You are in the dragons's room.")
@@ -476,7 +476,7 @@ while (int(storyline) != 9):
                             time.sleep(2)
                             print(name + " is also quite amused by the dragon's change in mood. The dragon, noticing this, immediately changes back to a surly expression.")
                             time.sleep(2)
-                            print("\"These are alright,\" he says nonchalantly. \"Anyways, I'd seriously prefer that you leave me alone. Humans like shiny things, don't they? If you need something else to keep you occupied, take this.\"")
+                            print("\"These are alright,\" he says nonchalantly. \"Anyways, I'd seriously prefer that you leave me alone. I don't know anything about a key. Humans like shiny things, don't they? If you need something else to keep you occupied, take this.\"")
                             time.sleep(2)
                             print("The dragon tosses a shiny piece of something. " + name + " rushes to catch it as in glints in the air. Upon grabbing it, " + name + " realizes that it's a piece of sea glass.")
                             time.sleep(2)
@@ -584,16 +584,76 @@ while (int(storyline) != 9):
     elif int(choice) == 4:
         # Goblins
         if rooms[3] == 1:
-            # siren is happy
-            print("a")
+            # goblin is happy
+            print(name + " finds the same fortress looming in the scenery. " + name + " is sure that the goblin is not coming back out of the fortress, so " + name + " decides to leave.")
         elif quickpro[3] == 1:
             # User already visited
             print(" -> You are in the room with the fortress.")
-            print("a")
+            print("The iron fortress is still as nondescript as ever.")
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n| 1. Ask whoever's in the fortress to come out. | 2. Give a peace offering from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    if rooms[3] == 1:
+                        print("The goblin doesn't seem to be coming out anytime soon.")
+                    else:
+                        print(name + " shouts out to whoever's in the fortress to come out and speak, but if there really is anyone inside, " + name + " wouldn't know. No one exits the fortress.")
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    elif rooms[3] == 1:
+                        print("The fortress appears to be empty once again. " + name + " figures that the goblin is probably not going to be leaving the fortress again...")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "mini-blade": 
+                            print(name + " takes the mini-blade out of the bag and holds it up.")
+                            time.sleep(2)
+                            print("\"IF ANYONE IS IN THERE, I'D LIKE TO OFFER THIS BLADE AS A PEACE OFFERING!\" " + name + " shouts, waving the blade in the air.")
+                            time.sleep(2)
+                            print("Nothing happens for a moment. Suddenly, a circular door on the top of the fortress slides open, and a creature that looks like a goblin exits it.")
+                            time.sleep(2)
+                            print("\"Just throw it up here,\" the goblin says with a gruff voice that somehow manages to reach " + name + " without being raised. \"CAN WE TRADE?!\" " + name + " calls back loudly.")
+                            time.sleep(2)
+                            print("Silence follows. After a moment, the goblin says, \"Toss the blade and then walk up to the foot of the fortress. Hold out your hands.\"")
+                            time.sleep(2)
+                            print(name + " has no clue what's going on, but decides to obey anyway. " + name + " aims and then tosses the blade over.")
+                            time.sleep(2)
+                            bag.remove("mini-blade")
+                            print(" -> You tossed the mini-blade!")
+                            time.sleep(2)
+                            print("Miraculously, the blade reaches the top of the fortress. Hopefully it didn't hit anyone. Then, " + name + " marches up to the fortress, just like the goblin said to do.")
+                            time.sleep(2)
+                            print("Suddenly, a small bunch of some kind of fruit falls from the fortress. " + name + " easily catches it.")
+                            time.sleep(2)
+                            print("\"Frost fruit,\" the goblin explains shortly. " + name + " steps back, and watches as the door to the fortress closes slowly.")
+                            time.sleep(2)
+                            bag.append("frost fruit")
+                            print(" -> You put the frost fruit in your bag!")
+                            rooms[3] = 1
+                        else:
+                            print(name + " tries to offer the " + bag[int(bagchoice)] + ", but nothing happens. Probably not the best peace offering.")
+                elif int(choice) == 3:
+                    print(name + " exits the room.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")
         else:
             print(name + " enters the fourth room. The sky is bleak, and right in front of " + name + " is a dark, iron fortress.")
             time.sleep(2)
             print("\"HELLOOOO!\" " + name + " calls out, to no avail. No one exits the fortress, so " + name + " walks away.")
+            quickpro[3] = 1
     elif int(choice) == 5:
         # Trolls
         if rooms[4] == 1:

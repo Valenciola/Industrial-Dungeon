@@ -361,10 +361,56 @@ while (int(storyline) != 9):
         # Siren
         if rooms[0] == 1:
             # siren is happy
-            print("a")
+            print(name + " reenters the siren's room. The siren is back to its original spot in the lagoon, and is singing a song about sparkly sea glass and fruit-harvesting trolls. The song is definitely more tolerable than the other song, and " + name + " feels more inclined to hear the words, but " + name + " can't tell how long the song will run on for, and there's not enough time to waste, so " + name + " exits the room.")
         elif quickpro[0] == 1:
-            # User already visited siren and siren no want talk
+            # User already visited siren
             print(" -> You are in the siren's room.")
+            print(name + " heads back into the beachy room. The siren is still there, and it starts up its manipulative song again, but " + name + " still doesn't really care for it.")
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n| 1. Try to ask the siren to stop. | 2. Give the siren a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    print(name + " tries to yell over the siren's song, but the siren is way too into it to stop now. No such luck.")
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "sea glass": 
+                            print(name + " holds up the piece of sea glass, and it glints in the light. The shine distracts the siren for a moment, and it stops singing.")
+                            time.sleep(2)
+                            print(name + " takes the oppourtunity to get a word in, shouting, \"HEY, DO YOU THINK I CAN TRADE YOU THIS FOR SOMETHING ELSE?!\"")
+                            time.sleep(2)
+                            print("The siren pauses for a moment, but then disappears under the water. For a moment, " + name + " thinks that it's running away, but then it resurfaces again.")
+                            time.sleep(2)
+                            print("It moves closer to " + name + " and holds up what looks like a sharp, steel blade. Before " + name + " has any time to consider running away quickly, the siren says, \"You can take this in exchange. That's a seriously nice piece of sea glass. Nicer than this weird, sharp thing, at least.\"")
+                            time.sleep(2)
+                            print("The siren's voice sounds quite friendly, and is ironically not melodious at all. " + name + " breathes a sign of relief and accepts the blade, handing over the sea glass in exchange.")
+                            bag.remove("sea glass")
+                            bag.append("mini-blade")
+                            time.sleep(2)
+                            print(" -> You added the mini-blade to your bag!")
+                            print(name + " thanks the siren and hurries out before the siren can start singing another song.")
+                            rooms[0] = 1
+                        else:
+                            print(name + " holds up the " + bag[int(bagchoice)] + ", but the siren doesn't pay it any mind. It just keeps on singing.")
+                    time.sleep(2)
+                    print(name + " repockets the item and leaves the room to restrategize without the siren's annoying song in the background.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")
         else:
             print(name + " opens the first door. Inside is a lagoon with a sandy area right in front of the door.")
             time.sleep(2)
@@ -374,7 +420,7 @@ while (int(storyline) != 9):
             time.sleep(2)
             print("The siren doesn't respond. For a second, " + name + " thought it might not have heard, but suddenly, the siren starts to launch into a mind-captivating song.")
             time.sleep(2)
-            print("To any other person, the song would take over the person's senses immediately. But because " + name + " works with public relations, where the skill of tuning people out is very important, it has no affect.")
+            print("To any other person, the song would take over the person's senses immediately. But because " + name + " works with public relations, where the skill of tuning people out is very important, it has no effect.")
             time.sleep(2)
             print("Annoyed by the song, " + name + " leaves the room.")
             quickpro[0] = 1

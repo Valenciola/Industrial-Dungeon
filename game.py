@@ -64,7 +64,7 @@ print(name + "?")
 
 choice = 0
 while (int(choice) < 1 or int(choice) > 2):
-    choice = input("\n|1. Yes.| 2. No. | 3. What? | : ")
+    choice = input("\n| 1. Yes.| 2. No. | 3. What? | : ")
     print("--------")
     if int(choice) == 1:
         print("Cool! Nice to meet you, " + name + "!")
@@ -88,7 +88,7 @@ print("Are you ready now?")
 choice = 0
 waittime = 0
 while (int(choice) < 1 or int(choice) > 2):
-    choice = input("\n|1. Yes! | 2. No... | 3. How should I answer this? | : ")
+    choice = input("\n| 1. Yes! | 2. No... | 3. How should I answer this? | : ")
     print("--------")
     if int(choice) == 1:
         print("Awesome! Let's go!!!")
@@ -282,7 +282,7 @@ choice = 0
 while (int(choice) < 1 or int(choice) > 2):
     time.sleep(2)
     print("\nHow will you respond?")
-    choice = input("\n|1. \"I guess it's worth a look...\" | 2. \"I don't know...\" | 3. HELP | : ")
+    choice = input("\n| 1. \"I guess it's worth a look...\" | 2. \"I don't know...\" | 3. HELP | : ")
     print("--------")
     if int(choice) == 1:
         print("Taro smiles. \"Excellent!\" he exclaims. \"Oh, and why don't you tell me what you find out while you're there? Working in PR can be so boring.\"")
@@ -297,6 +297,7 @@ while (int(choice) < 1 or int(choice) > 2):
     else:
         print("This isn't one of the options...")
 '''
+
 storyline = 6
 time.sleep(2)
 print(name + " has now returned to the desk. It seems that Taro's theory is worth investigating. Plus, it could be a lot more fun than dealing with people...")
@@ -306,7 +307,7 @@ choice = 0
 while (int(choice) != 1):
     time.sleep(2)
     print("\nWhat would you like to do?")
-    choice = input("\n|1. Investigate the halls | 2. Do nothing | 3. HELP | : ")
+    choice = input("\n| 1. Investigate the halls | 2. Do nothing | 3. HELP | : ")
     print("--------")
     if int(choice) == 1:
         print(name + " decides to enter the halls, in search of the prized key.")
@@ -353,7 +354,7 @@ quickpro = [0, 0, 0, 0, 0]
 while (int(storyline) != 9):
     time.sleep(2)
     print("\nWhich room do you want to explore?")
-    choice = input("\n|1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. HELP | : ")
+    choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. HELP | : ")
     print("--------")
     if int(choice) == 1:
         # Siren
@@ -403,7 +404,7 @@ while (int(storyline) != 9):
             while (int(choice) != 3):
                 time.sleep(2)
                 print("\nWhat would you like to do?")
-                choice = input("\n|1. Ask the elf what's up. | 2. Give the elf a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                choice = input("\n| 1. Ask the elf what's up. | 2. Give the elf a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
                 if int(choice) == 1:
                     print(name + " asks the elf what's going on with it, but the elf just snickers and does a little dance. " + name + " guesses that it's in a good mood.")
@@ -417,7 +418,7 @@ while (int(storyline) != 9):
                         print("\nWhat would you like to give?")
                         bagchoice = input("Enter the number of the item you want to give: ")
                         bagchoice = int(bagchoice) - 1
-                        if int(bagchoice) > len(bag):
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
                             print("Your bag doesn't even contain this many items!")
                         elif bag[int(bagchoice)] == "gold pearl": 
                             print("gold pearl!")

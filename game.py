@@ -363,7 +363,7 @@ while (int(storyline) != 9):
             print("a")
         elif quickpro[0] == 1:
             # User already visited siren and siren no want talk
-            print("a")
+            print(" -> You are in the siren's room.")
         else:
             print(name + " opens the first door. Inside is a lagoon with a sandy area right in front of the door.")
             time.sleep(2)
@@ -384,13 +384,13 @@ while (int(storyline) != 9):
             print("a")
         elif quickpro[1] == 1:
             # User already visited
-            print("a")
+            print(" -> You are in the dragons's room.")
         else:
-            print(name + " enters the second door. Inside is a deep red dragon. He is lying on its stomach, looking generally uninterested in everything around him.")
+            print(name + " enters the second door. The sky is red, and the air is smoky, making it slightly hard to breathe. Inside is a deep red dragon. He is lying on its stomach, on a stony floor, looking generally uninterested in everything around him.")
             time.sleep(2)
-            print(name + " calls up to ask about the key, but the dragon isn't listening. Instead, it huffs, blowing out steam from its nostrils and turning away.")
+            print(name + " calls up to ask about the key, but the dragon isn't listening. Instead, he huffs, blowing out steam from its nostrils and turning away.")
             time.sleep(2)
-            print("Unsure of what else to do, " + name + " quietly leaves the room.")
+            print("The dragon doesn't seem to be in the best mood, so " + name + " decides that it would probably be a good idea not to bother him. Unsure of what else to do, " + name + " quietly leaves the room.")
             quickpro[1] = 1
     elif int(choice) == 3:
         # Green elves
@@ -399,7 +399,8 @@ while (int(storyline) != 9):
             print("a")
         elif quickpro[2] == 1:
             # User already visited
-            print(name + " reenters the room to talk to the elf.")
+            print(" -> You are in the green elf's room.")
+            print(name + " reenters the room to talk to the elf. The elf is still bouncing around in an excited fashion.")
             choice = 0
             while (int(choice) != 3):
                 time.sleep(2)
@@ -458,6 +459,7 @@ while (int(storyline) != 9):
             print("a")
         elif quickpro[3] == 1:
             # User already visited
+            print(" -> You are in the room with the fortress.")
             print("a")
         else:
             print(name + " enters the fourth room. The sky is bleak, and right in front of " + name + " is a dark, iron fortress.")
@@ -470,7 +472,7 @@ while (int(storyline) != 9):
             print("a")
         elif quickpro[4] == 1:
             # User already visited
-            print("a")
+            print(" -> You are in the troll's room.")
         else:
             print("The fifth room is an underground tunnel. " + name + " can see that there is an entire civilization within the expansive tunnel.")
             time.sleep(2)

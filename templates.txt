@@ -45,6 +45,7 @@ print(What's going on when you come back in)
                             rooms[2] = 1
                         else:
                             print(name + " gives the creature the " + bag[int(bagchoice)] + ", but the creature doesn't want it")
+                elif int(choice) == 3:
                     print(name + " exits the room.")
                     break
                 elif int(choice) == 4:

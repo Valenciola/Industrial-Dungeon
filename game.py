@@ -353,6 +353,7 @@ rooms = [0, 0, 0, 0, 0]
 quickpro = [0, 0, 0, 0, 0]
 while (int(storyline) != 9):
     time.sleep(2)
+    print(" -> You are in the hallway.")
     print("\nWhich room do you want to explore?")
     choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. HELP | : ")
     print("--------")
@@ -395,8 +396,10 @@ while (int(storyline) != 9):
     elif int(choice) == 3:
         # Green elves
         if rooms[2] == 1:
-            # siren is happy
-            print("a")
+            # elf is happy
+            print(name + " reenters the elf's room. The elf is still there, not paying any attention to " + name + " as it plays with its shiny new toy.")
+            time.sleep(2)
+            print(name + " realizes that it's probably not a great idea to be in the same room as the elf while still in posession with the key, so " + name + " leaves without making a sound.")
         elif quickpro[2] == 1:
             # User already visited
             print(" -> You are in the green elf's room.")
@@ -422,9 +425,22 @@ while (int(storyline) != 9):
                         if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
                             print("Your bag doesn't even contain this many items!")
                         elif bag[int(bagchoice)] == "gold pearl": 
-                            print("gold pearl!")
+                            print(name + " holds out the gold pearl. The elf approaches it curiously, but " + name + " lifts the pearl above its head so that it can't reach it.")
+                            time.sleep(2)
+                            print("\"The key for the pearl,\" " + name + " explains, giving the elf a stern look. The elf matches the look. It seems unwilling to give up the key, but if the elf isn't having it, neither is " + name + ".")
+                            time.sleep(2)
+                            print("\"Fine, then,\" " + name + " says. " + name + " starts to walk away with feigned conviction, but the elf dashes in front of " + name + " and quickly tosses up the key.")
+                            time.sleep(2)
+                            print("Startled, " + name + " quickly attempts to catch the key, dropping the gold pearl in the process.")
+                            bag.remove("gold pearl")
+                            print(" -> You dropped the gold pearl.")
+                            time.sleep(2)
+                            print("The elf seems even more content with the pearl than it was with the key, so " + name + " decides that it was a good tradeoff. Plus, the key has been recovered!")
+                            bag.append("key")
+                            print(" -> You added the key to your bag!")
+                            rooms[2] = 1
                         else:
-                            print("Not gold pearl... Instead you handed over the " + bag[int(bagchoice)] + ".")
+                            print(name + " gives the elf the " + bag[int(bagchoice)] + ", but the elf doesn't seem all that interested in it, so " + name + " takes the gift back before the elf can try to run away with it.")
                 elif int(choice) == 3:
                     print(name + " exits the room.")
                     break
@@ -481,7 +497,7 @@ while (int(storyline) != 9):
             print(name + " asks about the key. Unfortunately, the troll shakes her head sadly and explains that she hasn't seen it. " + name + " thanks the troll for her help and exits the room.")
     elif int(choice) == 6:
         # Leaving
-        if "key" in bag:
+        if "key" in bag and rooms == [1, 1, 1, 1, 1]:
             print("With the key safely in hand, " + name + " heads back to the desk.")
             storyline == 8
         else:

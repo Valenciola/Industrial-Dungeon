@@ -17,3 +17,37 @@ while (int(choice) < 1 or int(choice) > most answer - 1):
         help message
     else:
         invalid choice message
+
+~When inside a room again~
+print(What's going on when you come back in)
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n| 1. Ask the creature what's up. | 2. Give the creature a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    print(What's up indeed)
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "gift": 
+                            gift accepted
+                            rooms[2] = 1
+                        else:
+                            print(name + " gives the creature the " + bag[int(bagchoice)] + ", but the creature doesn't want it")
+                    print(name + " exits the room.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")

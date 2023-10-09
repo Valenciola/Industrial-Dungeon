@@ -373,7 +373,10 @@ while (int(storyline) != 9):
                 choice = input("\n| 1. Try to ask the siren to stop. | 2. Give the siren a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
                 if int(choice) == 1:
-                    print(name + " tries to yell over the siren's song and tell it to stop, but the siren is way too into it to stop now. No such luck.")
+                    if rooms[0] == 1:
+                        print(name + " considers asking the siren to stop singing, but the song actually sounds nice, so " + name + " just decides not to say anything.")
+                    else:
+                        print(name + " tries to yell over the siren's song and tell it to stop, but the siren is way too into it to stop now. No such luck.")
                 elif int(choice) == 2:
                     if len(bag) == 0:
                         print("Your bag is empty!")
@@ -402,7 +405,7 @@ while (int(storyline) != 9):
                             bag.append("mini-blade")
                             time.sleep(2)
                             print(" -> You added the mini-blade to your bag!")
-                            print(name + " thanks the siren and hurries out before the siren can start singing another song.")
+                            print(name + " thanks the siren. The siren nods and goes back out to the sea, starting to sing another song.")
                             rooms[0] = 1
                         else:
                             print(name + " holds up the " + bag[int(bagchoice)] + ", but the siren doesn't pay it any mind. It just keeps on singing.")

@@ -377,6 +377,8 @@ while (int(storyline) != 9):
                 elif int(choice) == 2:
                     if len(bag) == 0:
                         print("Your bag is empty!")
+                    elif rooms[0] == 1:
+                        print(name + " considers offering another gift, but the siren is quite distracted by the sea glass.")
                     else:
                         print("Contents of the bag: ")
                         for x in range (0, len(bag)):
@@ -428,11 +430,67 @@ while (int(storyline) != 9):
     elif int(choice) == 2:
         # Dragon
         if rooms[1] == 1:
-            # siren is happy
-            print("a")
+            # dragon is happy
+            print(name + " reenters the dragon's room. The dragon is still eating the mints, all while grumbling something about an ogre being overprotective over a swamp. It doesn't make much sense to " + name + ", but it might be a good idea to leave before the dragon launches into a rant, so " + name + " leaves the room.")
         elif quickpro[1] == 1:
             # User already visited
             print(" -> You are in the dragons's room.")
+            print("The dragon is still lying on the floor. Upon closer inspection, " + name + " realizes that the dragon seems to be quite grumpy. Maybe if the dragon weren't in such a bad mood, it would be willing to hear what " + name + " had to say.")
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n| 1. Ask the dragon what's up. | 2. Give the dragon a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    if rooms[1] == 1:
+                        print(name + " tries to ask the dragon how he's doing, but the dragon is not at all interested in conversation. He's too busy eating mints.")
+                    else:
+                        print(name + " asks the dragon what's up, but the dragon just huffs again. " + name + " can tell that he's still in a bad mood.")
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    elif rooms[1] == 1:
+                        print(name + " tries to offer the dragon another gift, but the dragon isn't listening anymore. Probably time to leave him alone.")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "mints": 
+                            print(name + " steps closer very cautiously and offers the dragon some mints. The dragon huffs again, but turns slightly to look at " + name + ".")
+                            time.sleep(2)
+                            print("The dragon looks genuinely curious, and after a moment, he says, \"Alright. Toss them up.\"")
+                            time.sleep(2)
+                            bag.remove("mints")
+                            print(" -> You tossed up the mints.")
+                            time.sleep(2)
+                            print("The dragon snatches the mints out of the air, then shakes two mints out of the tin and eats them. After a short moment, the dragon's facial expression changes to one of amusement.")
+                            time.sleep(2)
+                            print(name + " is also quite amused by the dragon's change in mood. The dragon, noticing this, immediately changes back to a surly expression.")
+                            time.sleep(2)
+                            print("\"These are alright,\" he says nonchalantly. \"Anyways, I'd seriously prefer that you leave me alone. Humans like shiny things, don't they? If you need something else to keep you occupied, take this.\"")
+                            time.sleep(2)
+                            print("The dragon tosses a shiny piece of something. " + name + " rushes to catch it as in glints in the air. Upon grabbing it, " + name + " realizes that it's a piece of sea glass.")
+                            time.sleep(2)
+                            bag.append("sea glass")
+                            print(" -> You put the piece of sea glass in your bag!")
+                            time.sleep(2)
+                            print(name + " thanks the dragon for the trade, but the dragon just rolls its eyes in fake annoyance and turns away.")
+                            rooms[1] = 1
+                        else:
+                            print(name + " tries to offer the " + bag[int(bagchoice)] + " to the dragon, but the dragon barely even flinches. " + name + " places it back in the bag and tries to think of something else to give that will improve the dragon's mood.")
+                elif int(choice) == 3:
+                    print(name + " exits the room.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")
         else:
             print(name + " enters the second door. The sky is red, and the air is smoky, making it slightly hard to breathe. Inside is a deep red dragon. He is lying on its stomach, on a stony floor, looking generally uninterested in everything around him.")
             time.sleep(2)
@@ -458,10 +516,15 @@ while (int(storyline) != 9):
                 choice = input("\n| 1. Ask the elf what's up. | 2. Give the elf a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
                 if int(choice) == 1:
-                    print(name + " asks the elf what's going on with it, but the elf just snickers and does a little dance. " + name + " guesses that it's in a good mood.")
+                    if rooms[2] == 1:
+                        print(name + " considers talking to the elf again, but elf is impossibly distracted by the little golden pearl. Nothing else has its attention.")
+                    else:
+                        print(name + " asks the elf what's going on with it, but the elf just snickers and does a little dance. " + name + " guesses that it's in a good mood.")
                 elif int(choice) == 2:
                     if len(bag) == 0:
                         print("Your bag is empty!")
+                    elif rooms[2] == 1:
+                        print("For a second, " + name + " thinks about giving the elf another gift, but quickly shakes away the thought. After all, the elf doesn't quite deserve a gift for being annoying.")
                     else:
                         print("Contents of the bag: ")
                         for x in range (0, len(bag)):

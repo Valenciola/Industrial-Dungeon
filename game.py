@@ -146,8 +146,8 @@ while int(choice) != 3:
             print("Your bag is empty!")
         else:
             print("Contents of the bag: ")
-            for x in range (len(bag)):
-                print(x + ".: " + bag[x])
+            for x in range (0, len(bag)):
+            print(str(x + 1) + ".: " + bag[x])
     elif int(choice) == 3:
         storyline = 2
     elif int(choice) == 4:
@@ -174,8 +174,8 @@ while int(choice) != 1:
             print("Your bag is empty!")
         else:
             print("Contents of the bag: ")
-            for x in range (len(bag)):
-                print(x + ".: " + bag[x])
+            for x in range (0, len(bag)):
+                print(str(x + 1) + ".: " + bag[x])
     elif int(choice) == 3:
         if ("key" in bag):
             # change storyline here to finish
@@ -207,8 +207,8 @@ while int(choice) != 3:
             print("Your bag is empty!")
         else:
             print("Contents of the bag: ")
-            for x in range (len(bag)):
-                print(x + ".: " + bag[x])
+            for x in range (0, len(bag)):
+                print(str(x + 1) + ".: " + bag[x])
     elif int(choice) == 3:
         storyline = 4
     elif int(choice) == 4:
@@ -351,11 +351,11 @@ print(name + " looks around and notices five doors, all of which are unmarked. T
 choice = 0
 rooms = [0, 0, 0, 0, 0]
 quickpro = [0, 0, 0, 0, 0]
-while (int(storyline) != 9):
+while (int(storyline) != 8):
     time.sleep(2)
     print(" -> You are in the hallway.")
     print("\nWhich room do you want to explore?")
-    choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. HELP | : ")
+    choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. Check your bag | 8. HELP | : ")
     print("--------")
     if int(choice) == 1:
         # Siren
@@ -657,25 +657,84 @@ while (int(storyline) != 9):
     elif int(choice) == 5:
         # Trolls
         if rooms[4] == 1:
-            # siren is happy
-            print("a")
+            # troll is happy
+            print(name + " reenters the room. The troll smiles happily at sends a greeting over, then goes back to cooking. " + name + " says hi back, and then leaves the room to avoid distracting the troll.")
         elif quickpro[4] == 1:
             # User already visited
             print(" -> You are in the troll's room.")
+            print("The troll that first spoke to " + name + " is nearby, but she is busy at work.")
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n| 1. Ask the troll what she's up to. | 2. Give the troll a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    if rooms[4] == 1:
+                        print("The troll has gone back to cooking. " + name + " doesn't want to interrupt what seems to be a delicious process, and decides not to ask anything.")
+                    else:
+                        print(name + " asks the troll what she's doing. The troll explains that she's cooking a meal for everyone to enjoy. Whatever she's making smells delicious!")
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    elif rooms[4] == 1:
+                        print(name + " tries to give the troll another gift, but the troll won't have it! She's already content enough with the frost fruit. Her kindess is something that " + name + " can't help but smile towards.")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag) or int(bagchoice) == len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "frost fruit": 
+                            print(name + " calls the troll over to offer the frost fruit. At the sight of it, the troll's eyes light up with excitement.")
+                            time.sleep(2)
+                            bag.remove("frost fruit")
+                            print(" -> You handed over the frost fruit!")
+                            time.sleep(2)
+                            print("\"This will be the perfect touch!\" she exclaims, accepting the frost fruit and sniffing it. \"And it's fresh too!\"")
+                            time.sleep(2)
+                            print("Gratefully, the troll reaches into her apron pocket and pulls out a shiny, gold pearl. \"Please, have this as a token of my appreciation!\" she insists.")
+                            time.sleep(2)
+                            print("The pearl is so impossibly valuable that " + name + " tries to refuse it, but the troll's insistence is too strong, so " + name + " humbly accepts the gold pearl.")
+                            time.sleep(2)
+                            bag.append("gold pearl")
+                            print(" -> You put the gold pearl in your bag! It looks shiny enough to get the elf's attention!")
+                            rooms[4] = 1
+                        else:
+                            print(name + " considers giving the troll the " + bag[int(bagchoice)] + ", but realizes that the troll has no use for it. " + name + " silently slips it back into the bag.")
+                elif int(choice) == 3:
+                    print(name + " exits the room.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")
         else:
             print("The fifth room is an underground tunnel. " + name + " can see that there is an entire civilization within the expansive tunnel.")
             time.sleep(2)
             print("A female troll walks up to " + name + " and smiles politely. \"Can I help you with anything?\" she asks.")
             time.sleep(2)
             print(name + " asks about the key. Unfortunately, the troll shakes her head sadly and explains that she hasn't seen it. " + name + " thanks the troll for her help and exits the room.")
+            quickpro[4] = 1
     elif int(choice) == 6:
         # Leaving
         if "key" in bag and rooms == [1, 1, 1, 1, 1]:
             print("With the key safely in hand, " + name + " heads back to the desk.")
-            storyline == 8
+            storyline = 8
         else:
             print(name + " considers just leaving the hall, but the key is still nowhere to be found, so leaving won't help anything.")
     elif int(choice) == 7:
+        # Check bag
+        if len(bag) == 0:
+            print("Your bag is empty!")
+        else:
+            print("Contents of the bag: ")
+            for x in range (0, len(bag)):
+                print(str(x + 1) + ".: " + bag[x])
+    elif int(choice) == 8:
         # Help
         print(" -> Enter the option you want to choose.")
     else:

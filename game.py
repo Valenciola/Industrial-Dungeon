@@ -6,7 +6,6 @@
 import time # Allows the program to wait (for dramatic effect)
 
 # Variables
-currency = 50
 bag = []
 health = 100
 name = "Unknown"
@@ -28,7 +27,7 @@ print("A story told in Python...")
 time.sleep(2)
 print("Narrator et Toi...")
 time.sleep(2)
-print("Also known as *Terminal Narrator*")
+print("Also known as *Industrial Dungeon*")
 print("--------")
 
 
@@ -383,7 +382,7 @@ while (int(storyline) != 9):
             # siren is happy
             print("a")
         elif quickpro[1] == 1:
-            # User already visited siren and siren no want talk
+            # User already visited
             print("a")
         else:
             print(name + " enters the second door. Inside is a deep red dragon. He is lying on its stomach, looking generally uninterested in everything around him.")
@@ -398,8 +397,39 @@ while (int(storyline) != 9):
             # siren is happy
             print("a")
         elif quickpro[2] == 1:
-            # User already visited siren and siren no want talk
-            print("a")
+            # User already visited
+            print(name + " reenters the room to talk to the elf.")
+            choice = 0
+            while (int(choice) != 3):
+                time.sleep(2)
+                print("\nWhat would you like to do?")
+                choice = input("\n|1. Ask the elf what's up. | 2. Give the elf a gift from your bag. | 3. Leave the room | 4. Help | : ")
+                print("--------")
+                if int(choice) == 1:
+                    print(name + " asks the elf what's going on with it, but the elf just snickers and does a little dance. " + name + " guesses that it's in a good mood.")
+                elif int(choice) == 2:
+                    if len(bag) == 0:
+                        print("Your bag is empty!")
+                    else:
+                        print("Contents of the bag: ")
+                        for x in range (0, len(bag)):
+                            print(str(x + 1) + ".: " + bag[x])
+                        print("\nWhat would you like to give?")
+                        bagchoice = input("Enter the number of the item you want to give: ")
+                        bagchoice = int(bagchoice) - 1
+                        if int(bagchoice) > len(bag):
+                            print("Your bag doesn't even contain this many items!")
+                        elif bag[int(bagchoice)] == "gold pearl": 
+                            print("gold pearl!")
+                        else:
+                            print("Not gold pearl... Instead you handed over the " + bag[int(bagchoice)] + ".")
+                elif int(choice) == 3:
+                    print(name + " exits the room.")
+                    break
+                elif int(choice) == 4:
+                    print(" -> Enter the number of your choice.")
+                else:
+                    print("This isn't one of the options...")
         else:
             print(name + " enters the third room. It's filled with verdant, rolling hills that seem to stretch on endlessly.")
             time.sleep(2)
@@ -426,7 +456,7 @@ while (int(storyline) != 9):
             # siren is happy
             print("a")
         elif quickpro[3] == 1:
-            # User already visited siren and siren no want talk
+            # User already visited
             print("a")
         else:
             print(name + " enters the fourth room. The sky is bleak, and right in front of " + name + " is a dark, iron fortress.")
@@ -438,7 +468,7 @@ while (int(storyline) != 9):
             # siren is happy
             print("a")
         elif quickpro[4] == 1:
-            # User already visited siren and siren no want talk
+            # User already visited
             print("a")
         else:
             print("The fifth room is an underground tunnel. " + name + " can see that there is an entire civilization within the expansive tunnel.")

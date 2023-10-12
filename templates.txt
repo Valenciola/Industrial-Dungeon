@@ -54,3 +54,8 @@ print("What's going on when you come back in")
                     print(" -> Enter the number of your choice.")
                 else:
                     print("This isn't one of the options...")
+
+~Condition for non-number answers~
+if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0

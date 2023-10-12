@@ -36,7 +36,10 @@ choice = 0
 while (int(choice) < 1 or int(choice) > 3):
     choice = input("|1. I don't know... | 2. I... uh... | 3. I opened a file on my computer...| 4. How do I...?| : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print("Oh... I'll be honest, I don't know either.")
         print("\nDo you at least know your name?")
     elif int(choice) == 2:

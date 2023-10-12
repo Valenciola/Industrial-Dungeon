@@ -54,6 +54,13 @@ while (int(choice) < 1 or int(choice) > 3):
         print("\nSorry, I don't think I got that. Come again?")
 
 name = input("\nEnter your name: ")
+if len(name) == 0:
+    while len(name) == 0:
+        print("Try entering something else (something that maybe isn't blank).")
+        name = input("\nEnter your name: ")
+else:
+    pass
+
 print("\nYour name is...")
 time.sleep(2)
 print(name + "?")
@@ -62,7 +69,10 @@ choice = 0
 while (int(choice) < 1 or int(choice) > 2):
     choice = input("\n| 1. Yes.| 2. No. | 3. What? | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print("Cool! Nice to meet you, " + name + "!")
     elif int(choice) == 2:
         print("\nOh, my bad. What was it again?")
@@ -86,7 +96,10 @@ waittime = 0
 while (int(choice) < 1 or int(choice) > 2):
     choice = input("\n| 1. Yes! | 2. No... | 3. How should I answer this? | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print("Awesome! Let's go!!!")
     elif int(choice) == 2:
         print("Okay, then, how long should I give you?")
@@ -135,7 +148,10 @@ while int(choice) != 3:
     print("\nWhat would you like to do?")
     choice = input("| 1. Check your desk | 2. Check your bag | 3. Go to your locker | 4. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print(name + " checks the desk. It's adorned with some pictures of the things that " + name + " really likes.")
     elif int(choice) == 2:
         if len(bag) == 0:
@@ -163,7 +179,10 @@ while int(choice) != 1:
     print("\nWhat would you like to do?")
     choice = input("| 1. Head back your desk | 2. Check your bag | 3. Try to open the locker | 4. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         storyline = 3
     elif int(choice) == 2:
         if len(bag) == 0:
@@ -175,6 +194,7 @@ while int(choice) != 1:
     elif int(choice) == 3:
         if ("key" in bag):
             # change storyline here to finish
+            print("The game is over, but you shouldn't have the key yet...")
             break
         else:
             print(name + " tries to open the locker, but it can't be opened without the key, which " + name + " doesn't have.")
@@ -192,7 +212,10 @@ while int(choice) != 3:
     print("\nWhat would you like to do?")
     choice = input("| 1. Open some desk drawers | 2. Check your bag | 3. Ask your co-workers | 4. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         if quickpro[0] == 1:
             print(name + " opens the desk drawers again, but all of the same stuff is still there. The key is probably not at the desk.")
         else:
@@ -223,7 +246,10 @@ while int(choice) != 3:
     print("\nWhat who do you want to talk to?")
     choice = input("| 1. Sandra | 2. Pieter | 3. Taro | 4. No one | 5. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         if quickpro[0] == 0:
             print(name + " approaches Sandra, who is applying some lipstick at her desk.")
             time.sleep(2)
@@ -280,7 +306,10 @@ while (int(choice) < 1 or int(choice) > 2):
     print("\nHow will you respond?")
     choice = input("\n| 1. \"I guess it's worth a look...\" | 2. \"I don't know...\" | 3. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print("Taro smiles. \"Excellent!\" he exclaims. \"Oh, and why don't you tell me what you find out while you're there? Working in PR can be so boring.\"")
         time.sleep(4)
         print(name + " can't help but smile at Taro's authenticity. " + name + " thanks Taro for his help and heads back to the desk.")
@@ -304,7 +333,10 @@ while (int(choice) != 1):
     print("\nWhat would you like to do?")
     choice = input("\n| 1. Investigate the halls | 2. Do nothing | 3. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         print(name + " decides to enter the halls, in search of the prized key.")
         storyline = 7
     elif int(choice) == 2:
@@ -352,7 +384,10 @@ while (int(storyline) != 8):
     print("\nWhich room do you want to explore?")
     choice = input("\n| 1. Room 1 | 2. Room 2 | 3. Room 3 | 4. Room 4 | 5. Room 5 | 6. Exit the hall | 7. Check your bag | 8. HELP | : ")
     print("--------")
-    if int(choice) == 1:
+    if not(choice.isdigit()):
+        print("This isn't even a valid answer.")
+        choice = 0
+    elif int(choice) == 1:
         # Siren
         if rooms[0] == 1:
             # siren is happy
@@ -367,7 +402,10 @@ while (int(storyline) != 8):
                 print("\nWhat would you like to do?")
                 choice = input("\n| 1. Try to ask the siren to stop. | 2. Give the siren a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
-                if int(choice) == 1:
+                if not(choice.isdigit()):
+                    print("This isn't even a valid answer.")
+                    choice = 0
+                elif int(choice) == 1:
                     if rooms[0] == 1:
                         print(name + " considers asking the siren to stop singing, but the song actually sounds nice, so " + name + " just decides not to say anything.")
                     else:
@@ -440,7 +478,10 @@ while (int(storyline) != 8):
                 print("\nWhat would you like to do?")
                 choice = input("\n| 1. Ask the dragon what's up. | 2. Give the dragon a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
-                if int(choice) == 1:
+                if not(choice.isdigit()):
+                    print("This isn't even a valid answer.")
+                    choice = 0
+                elif int(choice) == 1:
                     if rooms[1] == 1:
                         print(name + " tries to ask the dragon how he's doing, but the dragon is not at all interested in conversation. He's too busy eating mints.")
                     else:
@@ -513,7 +554,10 @@ while (int(storyline) != 8):
                 print("\nWhat would you like to do?")
                 choice = input("\n| 1. Ask the elf what's up. | 2. Give the elf a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
-                if int(choice) == 1:
+                if not(choice.isdigit()):
+                    print("This isn't even a valid answer.")
+                    choice = 0
+                elif int(choice) == 1:
                     if rooms[2] == 1:
                         print(name + " considers talking to the elf again, but elf is impossibly distracted by the little golden pearl. Nothing else has its attention.")
                     else:
@@ -591,7 +635,10 @@ while (int(storyline) != 8):
                 print("\nWhat would you like to do?")
                 choice = input("\n| 1. Ask whoever's in the fortress to come out. | 2. Give a peace offering from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
-                if int(choice) == 1:
+                if not(choice.isdigit()):
+                    print("This isn't even a valid answer.")
+                    choice = 0
+                elif int(choice) == 1:
                     if rooms[3] == 1:
                         print("The goblin doesn't seem to be coming out anytime soon.")
                     else:
@@ -664,7 +711,10 @@ while (int(storyline) != 8):
                 print("\nWhat would you like to do?")
                 choice = input("\n| 1. Ask the troll what she's up to. | 2. Give the troll a gift from your bag. | 3. Leave the room | 4. Help | : ")
                 print("--------")
-                if int(choice) == 1:
+                if not(choice.isdigit()):
+                    print("This isn't even a valid answer.")
+                    choice = 0
+                elif int(choice) == 1:
                     if rooms[4] == 1:
                         print("The troll has gone back to cooking. " + name + " doesn't want to interrupt what seems to be a delicious process, and decides not to ask anything.")
                     else:
